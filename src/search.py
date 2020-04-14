@@ -1,4 +1,4 @@
-def sequential_search(arr, item):
+def linear_search(arr, item):
     for i, el in enumerate(arr):
         if el == item:
             return i
@@ -6,7 +6,7 @@ def sequential_search(arr, item):
     return -1
 
 
-def ordered_sequential_search(arr, item):
+def ordered_linear_search(arr, item):
     for i, el in enumerate(arr):
         if el == item:
             return i

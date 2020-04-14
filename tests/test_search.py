@@ -1,6 +1,6 @@
 import pytest
 
-from src.search import binary_search_iter, binary_search_rec, ordered_sequential_search, sequential_search
+from src.search import binary_search_iter, binary_search_rec, linear_search, ordered_linear_search
 
 cases = [
     ([1, 2, 32, 8, 17, 19, 42, 13, 0], 3, -1),
@@ -12,7 +12,7 @@ cases = [
 
 @pytest.mark.parametrize("arr, item, expected", cases)
 def test_linear(arr, item, expected):
-    result = sequential_search(arr, item)
+    result = linear_search(arr, item)
     assert result == expected
 
 
@@ -24,7 +24,7 @@ cases = [
 
 @pytest.mark.parametrize("arr, item, expected", cases)
 def test_ordered(arr, item, expected):
-    result = ordered_sequential_search(arr, item)
+    result = ordered_linear_search(arr, item)
     assert result == expected
 
 
