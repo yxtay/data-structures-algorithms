@@ -110,27 +110,27 @@ def quick_sort(arr):
 def heap_sort(arr):
     def heapify(arr, n, i):
         # Find largest among root and children
-        largest = i
-        l = 2 * i + 1
-        r = 2 * i + 2
+        max_idx = i
+        left_idx = 2 * i + 1
+        right_idx = 2 * i + 2
 
-        if l < n and arr[i] < arr[l]:
-            largest = l
+        if left_idx < n and arr[max_idx] < arr[left_idx]:
+            max_idx = left_idx
 
-        if r < n and arr[largest] < arr[r]:
-            largest = r
+        if right_idx < n and arr[max_idx] < arr[right_idx]:
+            max_idx = right_idx
 
         # If root is not largest, swap with largest and continue heapifying
-        if largest != i:
-            arr[i], arr[largest] = arr[largest], arr[i]
-            heapify(arr, n, largest)
+        if max_idx != i:
+            arr[i], arr[max_idx] = arr[max_idx], arr[i]
+            heapify(arr, n, max_idx)
 
     # Build max heap
-    for i in range(len(arr), -1, -1):
+    for i in range(len(arr) // 2 - 1, -1, -1):
         heapify(arr, len(arr), i)
 
     for i in range(len(arr) - 1, 0, -1):
-        # swap
+        # swap largest to last
         arr[i], arr[0] = arr[0], arr[i]
 
         # heapify root element
@@ -160,12 +160,12 @@ def bucket_sort(arr):
 
 def counting_sort(arr):
     output = [0] * len(arr)
-    count = [0] * (max(arr) + 1)
+    count = [0] * (max(arr) - min(0, *arr) + 1)
 
-    for i in range(0, len(arr)):
+    for i, _ in enumerate(arr):
         count[arr[i]] += 1
 
-    for i in range(1, max(arr) + 1):
+    for i in range(min(0, *arr) + 1, max(arr) + 1):
         count[i] += count[i - 1]
 
     i = len(arr) - 1
@@ -174,37 +174,36 @@ def counting_sort(arr):
         count[arr[i]] -= 1
         i -= 1
 
-    for i in range(0, len(arr)):
-        arr[i] = output[i]
+    for i, el in enumerate(output):
+        arr[i] = el
 
 
-def radix_sort(array):
-    def counting_sort(array, place):
-        size = len(array)
-        output = [0] * size
+def radix_sort(arr):
+    def counting_sort(arr, place):
+        output = [0] * len(arr)
         count = [0] * 10
 
-        for i in range(0, size):
-            index = array[i] // place
+        for i in range(0, len(arr)):
+            index = arr[i] // place
             count[index % 10] += 1
 
         for i in range(1, 10):
             count[i] += count[i - 1]
 
-        i = size - 1
+        i = len(arr) - 1
         while i >= 0:
-            index = array[i] // place
-            output[count[index % 10] - 1] = array[i]
+            index = arr[i] // place
+            output[count[index % 10] - 1] = arr[i]
             count[index % 10] -= 1
             i -= 1
 
-        for i in range(0, size):
-            array[i] = output[i]
+        for i in range(len(arr)):
+            arr[i] = output[i]
 
-    max_element = max(array)
+    max_element = max(arr)
     place = 1
     while max_element // place > 0:
-        counting_sort(array, place)
+        counting_sort(arr, place)
         place *= 10
 
 

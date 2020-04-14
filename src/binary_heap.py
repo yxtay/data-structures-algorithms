@@ -9,8 +9,7 @@ class BinaryHeap(object):
         i = len(self)
         while i // 2 > 0:
             if self.items[i] < self.items[i // 2]:
-                self.items[i // 2], self.items[i] = \
-                    self.items[i], self.items[i // 2]
+                self.items[i // 2], self.items[i] = self.items[i], self.items[i // 2]
             i = i // 2
 
     def insert(self, k):
@@ -30,8 +29,8 @@ class BinaryHeap(object):
 
         if self.items[i * 2] < self.items[i * 2 + 1]:
             return i * 2
-
-        return i * 2 + 1
+        else:
+            return i * 2 + 1
 
     def delete_min(self):
         return_value = self.items[1]
