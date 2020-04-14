@@ -1,0 +1,33 @@
+class Deque(object):
+    def __init__(self):
+        self._items = []
+
+    def is_empty(self):
+        return self._items == []
+
+    def add_front(self, item):
+        self._items.append(item)
+
+    def add_rear(self, item):
+        self._items.insert(0, item)
+
+    def remove_front(self):
+        return self._items.pop()
+
+    def remove_rear(self):
+        return self._items.pop(0)
+
+    def size(self):
+        return len(self._items)
+
+    @property
+    def items(self):
+        return self._items
+
+    @items.setter
+    def items(self, value):
+        raise ValueError("items cannot be set.")
+
+    @items.deleter
+    def items(self):
+        raise ValueError("items cannot be deleted.")

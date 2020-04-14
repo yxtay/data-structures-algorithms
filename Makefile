@@ -26,3 +26,8 @@ sync-requirements:
 .PHONY: pytest
 pytest:
 	pytest -v -p no:warnings $(TESTS)
+
+.PHONY: black
+black:
+	black --line-length 128 src
+	black --line-length 128 tests
