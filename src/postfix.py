@@ -10,7 +10,7 @@ LEFT_PAREN = "("
 RIGHT_PAREN = ")"
 
 
-def infix_to_postfix(infix_expression):
+def to_postfix(infix_expression):
     operation_stack = []
     postfix = []
     tokens = infix_expression.split()

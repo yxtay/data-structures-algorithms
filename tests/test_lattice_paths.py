@@ -18,6 +18,6 @@ def test_dp(height, width, expected):
 
 
 @pytest.mark.parametrize("height, width, expected", cases)
-def test_dp(height, width, expected):
+def test_dp_2(height, width, expected):
     result = num_paths_dp_2(height, width)
     assert result == expected

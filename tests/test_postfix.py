@@ -1,6 +1,6 @@
 import pytest
 
-from src.postfix import evaluate_postfix, infix_to_postfix
+from src.postfix import evaluate_postfix, to_postfix
 
 cases = [
     ("A * B + C * D", "A B * C D * +"),
@@ -14,7 +14,7 @@ cases = [
 
 @pytest.mark.parametrize("infix, expected", cases)
 def test_to_postfix(infix, expected):
-    result = infix_to_postfix(infix)
+    result = to_postfix(infix)
     assert result == expected
 
 

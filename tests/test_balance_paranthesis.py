@@ -12,6 +12,6 @@ cases = [
 
 
 @pytest.mark.parametrize("symbols, expected", cases)
-def test_iter(symbols, expected):
+def test(symbols, expected):
     result = is_balanced(symbols)
     assert result == expected

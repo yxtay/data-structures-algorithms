@@ -9,6 +9,6 @@ cases = [
 
 
 @pytest.mark.parametrize("characters, expected", cases)
-def test_linear(characters, expected):
+def test(characters, expected):
     result = is_palindrome(characters)
     assert result == expected
