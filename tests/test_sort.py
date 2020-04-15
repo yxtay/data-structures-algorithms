@@ -1,8 +1,16 @@
 import pytest
 
 from src.sort import (
-    bubble_sort, bucket_sort, counting_sort, heap_sort, insertion_sort, merge_sort, quick_sort, radix_sort,
-    selection_sort, shell_sort,
+    bubble_sort,
+    bucket_sort,
+    counting_sort,
+    heap_sort,
+    insertion_sort,
+    merge_sort,
+    quick_sort,
+    radix_sort,
+    selection_sort,
+    shell_sort,
 )
 
 cases = [
@@ -81,7 +89,7 @@ def test_shell_sort(arr, expected):
 
 
 def test_bucket_sort():
-    arr = [.42, .32, .33, .52, .37, .47, .51]
+    arr = [0.42, 0.32, 0.33, 0.52, 0.37, 0.47, 0.51]
     bucket_sort(arr)
     expected = [0.32, 0.33, 0.37, 0.42, 0.47, 0.51, 0.52]
     assert arr == expected

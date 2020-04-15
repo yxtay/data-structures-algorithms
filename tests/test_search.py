@@ -3,6 +3,10 @@ import pytest
 from src.search import binary_search_iter, binary_search_rec, linear_search, ordered_linear_search
 
 cases = [
+    ([1], 1, 0),
+    ([1, 2, 3], 1, 0),
+    ([1, 2, 3], 2, 1),
+    ([1, 2, 3], 3, 2),
     ([1, 2, 32, 8, 17, 19, 42, 13, 0], 3, -1),
     ([1, 2, 32, 8, 17, 19, 42, 13, 0], 13, 7),
     ([0, 1, 2, 8, 13, 17, 19, 32, 42], 3, -1),

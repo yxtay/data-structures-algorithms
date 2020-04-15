@@ -48,19 +48,27 @@ class UnorderedList(object):
             else:
                 previous.next = current.next
 
+    def __iter__(self):
+        current = self.head
+        while current is not None:
+            yield current.value
+            current = current.next
+
 
 class OrderedList(UnorderedList):
     def search(self, item):
         current = self.head
 
+        idx = 0
         while current is not None:
             if current.value == item:
-                return True
+                return idx
             if current.value > item:
-                return False
+                return -1
             current = current.next
+            idx += 1
 
-        return False
+        return -1
 
     def add(self, item):
         current = self.head
