@@ -3,7 +3,7 @@ from src.stack import Stack
 
 def test():
     s = Stack()
-    assert s.is_empty() == True
+    assert s.is_empty() is True
 
     s.push(4)
     assert s.items == [4]
@@ -18,13 +18,13 @@ def test():
 
     assert s.size() == 3
 
-    assert s.is_empty() == False
+    assert s.is_empty() is False
 
     s.push(8.4)
     assert s.items == [4, "dog", True, 8.4]
 
     assert s.pop() == 8.4
 
-    assert s.pop() == True
+    assert s.pop() is True
 
     assert s.size() == 2

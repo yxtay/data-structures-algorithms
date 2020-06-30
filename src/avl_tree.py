@@ -52,7 +52,9 @@ class AVLTree(BinarySearchTree):
                 rotation_root.parent.right = new_root
         new_root.left = rotation_root
         rotation_root.parent = new_root
-        rotation_root.balance_factor = rotation_root.balance_factor + 1 - min(new_root.balance_factor, 0)
+        rotation_root.balance_factor = (
+            rotation_root.balance_factor + 1 - min(new_root.balance_factor, 0)
+        )
         new_root.balance_factor = new_root.balance_factor + 1 + max(rotation_root.balance_factor, 0)
 
     def rotate_right(self, rotation_root):
@@ -70,7 +72,9 @@ class AVLTree(BinarySearchTree):
                 rotation_root.parent.left = new_root
         new_root.right = rotation_root
         rotation_root.parent = new_root
-        rotation_root.balance_factor = rotation_root.balance_factor + 1 - min(new_root.balance_factor, 0)
+        rotation_root.balance_factor = (
+            rotation_root.balance_factor + 1 - min(new_root.balance_factor, 0)
+        )
         new_root.balance_factor = new_root.balance_factor + 1 + max(rotation_root.balance_factor, 0)
 
     def rebalance(self, node):

@@ -3,7 +3,7 @@ from src.queue import Queue
 
 def test():
     q = Queue()
-    assert q.is_empty() == True
+    assert q.is_empty() is True
 
     q.enqueue(4)
     assert q.items == [4]
@@ -16,7 +16,7 @@ def test():
 
     assert q.size() == 3
 
-    assert q.is_empty() == False
+    assert q.is_empty() is False
 
     q.enqueue(8.4)
     assert q.items == [8.4, True, "dog", 4]

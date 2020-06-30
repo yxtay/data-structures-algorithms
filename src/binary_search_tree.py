@@ -172,7 +172,9 @@ class BinarySearchTree(object):
                 promoted_node.parent = node.parent
                 node.parent.right = promoted_node
             else:
-                node.replace_node_data(promoted_node.key, promoted_node.val, promoted_node.left, promoted_node.right)
+                node.replace_node_data(
+                    promoted_node.key, promoted_node.val, promoted_node.left, promoted_node.right
+                )
         else:  # has both children
             successor = node.find_successor()
             if successor:

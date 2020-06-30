@@ -30,7 +30,8 @@ def selection_sort(arr):
             # Update the min_index if the element at j is lower than it
             if arr[j] < arr[min_index]:
                 min_index = j
-        # After finding the lowest item of the unsorted regions, swap with the first unsorted item
+        # After finding the lowest item of the unsorted regions,
+        # swap with the first unsorted item
         arr[i], arr[min_index] = arr[min_index], arr[i]
 
 
@@ -86,7 +87,8 @@ def quick_sort(arr):
         pivot = array[high]
         i = low - 1
 
-        # Put the elements smaller than pivot on the left and greater than pivot on the right of pivot
+        # Put the elements smaller than pivot on the left
+        # and greater than pivot on the right of pivot
         for j in range(low, high):
             if array[j] <= pivot:
                 i = i + 1
@@ -97,7 +99,8 @@ def quick_sort(arr):
 
     def quick_sort_rec(array, low, high):
         if low < high:
-            # Select pivot position and put all the elements smaller than pivot on left and greater than pivot on right
+            # Select pivot position and put all the elements smaller
+            # than pivot on left and greater than pivot on right
             pi = partition(array, low, high)
             # Sort the elements on the left of pivot
             quick_sort_rec(array, low, pi - 1)
